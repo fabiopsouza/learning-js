@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt"> 
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Caelum jQuery</title>
+	</head>
+	<body>
+			<label for="input-nome">Digite sue nome:</label>
+			<input type="text" id="input-nome"/>
+			<input type="button" id="botao-copiar" value="copiar"/>
+			
+			<h2 id="texto-copiado"></h2>
+			
+			<script src="../js/jquery.min.js"></script>
+			<script>
+				$("#botao-copiar").on("click", function(){
+					var nome = $("#input-nome").val();
+					$("#texto-copiado").text(nome);	
+				});
+				
+				//Atalhos para a função "on"
+					
+				//click() -> quando clicar
+				
+				//blur() -> quando deixar o campo
+				
+				//mouseover() -> quando passar o mouse por cima
+				
+				//dblClick() -> quando clica duas vezes
+				
+				//change() -> quando o valor muda
+			</script>
+	</body>
+</html>

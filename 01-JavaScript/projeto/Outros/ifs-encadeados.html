@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Introdução</title>
+	</head>
+	<body>
+		<script>
+			var salarioMensal = 500;
+			var ehEstagiario = true;
+			var ehCLT = false;
+			
+			if(ehEstagiario || ehCLT){
+				if(salarioMensal > 0 && salarioMensal < 1000){
+					
+					var bonus = salarioMensal * 0.05;
+					
+					console.log("Salario > 0 e < 1000");
+					console.log(bonus);
+				}
+				else if(salarioMensal > 2000){
+					var bonus = salarioMensal * 0.10;
+					
+					console.log("Não caiu na primeira condição e salario e menor que 2000");
+					
+					console.log(bonus);
+				}
+				else{
+					var bonus = salarioMensal * 0.15;
+					
+					console.log("Não caiu nas outras condições");
+					
+					console.log(bonus);
+				}
+			}
+		</script>
+	</body>
+</html>
