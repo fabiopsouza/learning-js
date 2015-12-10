@@ -1,0 +1,49 @@
+<div class="page-header text-center">
+	<h1>{{foto.titulo}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<!-- novalidate -> Desabilita validação padrão do HTML e apesar de utilizar os mesmos atributos (ex: required), quem renderiza é o angular -->
+<form novalidate name="formulario" class="row" ng-submit="submeter()"> <!--Equivalente ao OnSubmit chama submeter(). (Obs: Existem diretivas para todos os outros eventos do javascript)-->
+	<div class="col-xs-6 col-md-6">
+		<div class="form-group">
+			<label>Título</label>
+			<input ng-model="foto.titulo" name="titulo" class="form-control" required ng-maxlength="20"/>
+			<!-- formulario.$submitted -> aplica validação apenas no submit -->
+			<span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">Título obrigatório</span><!-- ng-show -> exibição condicional -->
+
+			<span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">Deve ter no máximo 20 caracteres</span>
+		</div>
+
+		<div class="form-group">
+			<label>URL</label>
+			<input ng-model="foto.url" name="url" class="form-control" required/>
+			<span ng-show="formulario.$submitted &&  formulario.url.$error.required" class="form-control alert-danger">Url obrigatório</span>
+		</div>
+
+		<div class="form-group">
+			<label>Descrição</label>
+			<textarea ng-model="foto.descricao" name="descricao" class="form-control"></textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Grupo</label>
+			<select name="grupo" class="form-control" required ng-controller="GruposController" ng-model="foto.grupo" ng-options="grupo._id as (grupo.nome | uppercase) for grupo in grupos"> <!-- Select tem um controller especifico -->
+				<option value="">Selecione Grupo</option>
+			</select>
+			<span ng-show="formulario.$submitted &&  formulario.grupo.$error.required" class="form-control alert-danger">Grupo obrigatório
+			</span>
+		</div>
+
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+
+		<a href="/" class="btn btn-primary" meu-focus>Voltar</a>
+		<hr>
+	</div>
+
+	<div class="col-xs-6 col-md-6">
+		<!--<minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>-->
+		<img src="{{foto.url}}" title="{{foto.title}}">
+	</div>
+</form>
