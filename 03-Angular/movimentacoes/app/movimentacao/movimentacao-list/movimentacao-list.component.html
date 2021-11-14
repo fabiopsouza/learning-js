@@ -1,0 +1,25 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <td>CPF</td>
+                <td>Nome Titular</td>
+                <td>Número Conta</td>
+                <td>Total Créditos</td>
+                <td>Total Débitos</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movimentacao of movimentacoes" 
+                class="{{movimentacao.StatusMovimentacaoId == 1 ? 'warning' : (movimentacao.StatusMovimentacaoId == 2 ? 'success' : 'danger')}}">
+                <td>{{movimentacao.Cpf}}</td>
+                <td>{{movimentacao.NomeTitular}}</td>
+                <td>{{movimentacao.NumeroConta}}</td>
+                <td>{{movimentacao.TotalCreditos}}</td>
+                <td>{{movimentacao.TotalDebitos}}</td>
+                <td>{{movimentacao.StatusMovimentacaoId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
